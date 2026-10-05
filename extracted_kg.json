@@ -1,0 +1,952 @@
+{
+  "entities": [
+    {
+      "label": "Equipment",
+      "properties": {
+        "id": "PMP-CDU4-P101A",
+        "name": "Centrifugal Pump PMP-CDU4-P101A",
+        "type": "Centrifugal Pump",
+        "manufacturer": "Grundfos Industries",
+        "model": "NB-100-250/220",
+        "serial": "GFI-88712-VZK",
+        "installed_on": "14-Feb-2019"
+      }
+    },
+    {
+      "label": "Equipment",
+      "properties": {
+        "id": "Motor ABB M3BP-225SM",
+        "name": "Motor (ABB M3BP-225SM)",
+        "manufacturer": "ABB",
+        "model": "M3BP-225SM"
+      }
+    },
+    {
+      "label": "Equipment",
+      "properties": {
+        "id": "PMP-CDU4-P102B",
+        "name": "Standby Pump PMP-CDU4-P102B",
+        "type": "Standby Pump"
+      }
+    },
+    {
+      "label": "Equipment",
+      "properties": {
+        "id": "CDU-4 Overhead Condensate Drum",
+        "name": "CDU-4 overhead condensate drum"
+      }
+    },
+    {
+      "label": "Component",
+      "properties": {
+        "id": "Mechanical Seal John Crane 8B1",
+        "name": "Mechanical Seal (John Crane 8B1)",
+        "model": "John Crane Type 8B1"
+      }
+    },
+    {
+      "label": "Component",
+      "properties": {
+        "id": "Drive End Bearing SKF 6314-2RS",
+        "name": "Drive End Bearing (SKF 6314-2RS)",
+        "model": "SKF 6314-2RS"
+      }
+    },
+    {
+      "label": "Component",
+      "properties": {
+        "id": "Non-Drive End Bearing SKF 6311",
+        "name": "Non-Drive End Bearing (SKF 6311)",
+        "model": "SKF 6311"
+      }
+    },
+    {
+      "label": "Component",
+      "properties": {
+        "id": "Impeller",
+        "name": "Impeller"
+      }
+    },
+    {
+      "label": "Component",
+      "properties": {
+        "id": "Suction Strainer",
+        "name": "Suction Strainer"
+      }
+    },
+    {
+      "label": "Component",
+      "properties": {
+        "id": "Coupling Rexnord Thomas Disc",
+        "name": "Coupling (Rexnord Thomas Disc)",
+        "model": "Rexnord Thomas Disc"
+      }
+    },
+    {
+      "label": "Component",
+      "properties": {
+        "id": "Gland Packing / Seal Housing",
+        "name": "Gland Packing / Seal Housing"
+      }
+    },
+    {
+      "label": "Component",
+      "properties": {
+        "id": "Baseplate Anchor Bolts",
+        "name": "Baseplate Anchor Bolts"
+      }
+    },
+    {
+      "label": "Technician",
+      "properties": {
+        "id": "M. Suresh",
+        "name": "M. Suresh",
+        "role": "Sr. Instrument Tech",
+        "emp_id": "EMP-10234"
+      }
+    },
+    {
+      "label": "Technician",
+      "properties": {
+        "id": "P. Lakshmi",
+        "name": "P. Lakshmi",
+        "role": "Plant Reliability Eng."
+      }
+    },
+    {
+      "label": "Technician",
+      "properties": {
+        "id": "S. Patel",
+        "name": "S. Patel",
+        "role": "Operator"
+      }
+    },
+    {
+      "label": "Technician",
+      "properties": {
+        "id": "V. Reddy",
+        "name": "V. Reddy",
+        "role": "Process Engineer"
+      }
+    },
+    {
+      "label": "Sensor",
+      "properties": {
+        "id": "VT-P101A-DE",
+        "name": "Vibration Sensor - Drive End Bearing"
+      }
+    },
+    {
+      "label": "Sensor",
+      "properties": {
+        "id": "VT-P101A-NDE",
+        "name": "Vibration Sensor - Non-Drive End Bearing"
+      }
+    },
+    {
+      "label": "Sensor",
+      "properties": {
+        "id": "TT-P101A-BRG1",
+        "name": "Bearing Temperature Sensor - Drive End"
+      }
+    },
+    {
+      "label": "Sensor",
+      "properties": {
+        "id": "PT-P101A-SUC",
+        "name": "Suction Pressure Sensor"
+      }
+    },
+    {
+      "label": "Sensor",
+      "properties": {
+        "id": "PT-P101A-DIS",
+        "name": "Discharge Pressure Sensor"
+      }
+    },
+    {
+      "label": "Sensor",
+      "properties": {
+        "id": "PT-P101A-SL",
+        "name": "Seal Chamber Pressure Sensor"
+      }
+    },
+    {
+      "label": "Sensor",
+      "properties": {
+        "id": "CT-P101A-MOT",
+        "name": "Motor Current Sensor"
+      }
+    },
+    {
+      "label": "Sensor",
+      "properties": {
+        "id": "FT-CDU4-FEED",
+        "name": "Feed Flow Rate Sensor"
+      }
+    },
+    {
+      "label": "Sensor",
+      "properties": {
+        "id": "PT-P101A-OIL",
+        "name": "Lube Oil Pressure Sensor"
+      }
+    },
+    {
+      "label": "Issue",
+      "properties": {
+        "id": "Seal Face Leak",
+        "name": "Seal face leak"
+      }
+    },
+    {
+      "label": "Issue",
+      "properties": {
+        "id": "Cavitation Event",
+        "name": "Cavitation event"
+      }
+    },
+    {
+      "label": "Issue",
+      "properties": {
+        "id": "Marginal Vibration - DE Bearing",
+        "name": "Marginal vibration (Drive End Bearing)"
+      }
+    },
+    {
+      "label": "Issue",
+      "properties": {
+        "id": "Above Limit Noise Level",
+        "name": "Above limit noise level"
+      }
+    },
+    {
+      "label": "Issue",
+      "properties": {
+        "id": "Partially Blocked Suction Strainer",
+        "name": "Partially blocked suction strainer"
+      }
+    },
+    {
+      "label": "Issue",
+      "properties": {
+        "id": "Temporary Suction Pressure Drop",
+        "name": "Temporary drop in suction header pressure"
+      }
+    },
+    {
+      "label": "Issue",
+      "properties": {
+        "id": "Minor Impeller Surface Erosion",
+        "name": "Minor impeller surface erosion"
+      }
+    },
+    {
+      "label": "Material",
+      "properties": {
+        "id": "Crude Oil",
+        "name": "Crude oil"
+      }
+    },
+    {
+      "label": "Material",
+      "properties": {
+        "id": "Mobil SHC Polyrex EM",
+        "name": "Mobil SHC Polyrex EM",
+        "type": "NLGI Grade 2 polyurea grease"
+      }
+    },
+    {
+      "label": "Material",
+      "properties": {
+        "id": "Clean Condensate",
+        "name": "Clean condensate"
+      }
+    },
+    {
+      "label": "Material",
+      "properties": {
+        "id": "Process Oil",
+        "name": "Process oil"
+      }
+    },
+    {
+      "label": "Process",
+      "properties": {
+        "id": "Bearing Lubrication",
+        "name": "Bearing lubrication"
+      }
+    },
+    {
+      "label": "Process",
+      "properties": {
+        "id": "Concurrent Startup",
+        "name": "Concurrent startup"
+      }
+    },
+    {
+      "label": "Process",
+      "properties": {
+        "id": "Condition Monitoring",
+        "name": "Condition Monitoring"
+      }
+    },
+    {
+      "label": "Location",
+      "properties": {
+        "id": "Visakhapatnam Refinery",
+        "name": "Visakhapatnam Refinery"
+      }
+    },
+    {
+      "label": "Location",
+      "properties": {
+        "id": "CDU-4",
+        "name": "No. 4 Crude Distillation Unit (CDU-4)"
+      }
+    },
+    {
+      "label": "Location",
+      "properties": {
+        "id": "Zone 4",
+        "name": "Zone 4"
+      }
+    },
+    {
+      "label": "Action",
+      "properties": {
+        "id": "Grease Topped Up",
+        "name": "Grease topped up"
+      }
+    },
+    {
+      "label": "Action",
+      "properties": {
+        "id": "Cleaned Suction Strainer",
+        "name": "Cleaned suction strainer in-situ"
+      }
+    },
+    {
+      "label": "Action",
+      "properties": {
+        "id": "Torqued Anchor Bolts",
+        "name": "Torqued baseplate anchor bolts"
+      }
+    },
+    {
+      "label": "Action",
+      "properties": {
+        "id": "Borescope Impeller Inspection",
+        "name": "Borescope impeller inspection",
+        "work_order": "WO-2026-205001",
+        "priority": "High",
+        "target_date": "15-Sep-2026"
+      }
+    },
+    {
+      "label": "Action",
+      "properties": {
+        "id": "Repeat Vibration Trending",
+        "name": "Repeat vibration trending (DE Bearing)",
+        "priority": "Medium"
+      }
+    },
+    {
+      "label": "Action",
+      "properties": {
+        "id": "Review Pump Startup Procedure",
+        "name": "Review pump startup sequencing procedure SOP-OPS-0044",
+        "procedure_id": "SOP-OPS-0044",
+        "priority": "Medium",
+        "target_date": "30-Aug-2026"
+      }
+    },
+    {
+      "label": "Action",
+      "properties": {
+        "id": "Replace DE Bearing",
+        "name": "Replace Drive End Bearing",
+        "priority": "Conditional"
+      }
+    },
+    {
+      "label": "Action",
+      "properties": {
+        "id": "Update CMMS History",
+        "name": "Update CMMS equipment history",
+        "priority": "Routine",
+        "target_date": "25-Aug-2026"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Crude Oil Temperature",
+        "name": "Crude oil temperature",
+        "value": "65",
+        "unit": "C"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Rated Flow (Pump)",
+        "name": "Rated flow",
+        "value": "320",
+        "unit": "m3/h"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Differential Pressure (Pump)",
+        "name": "Differential pressure",
+        "value": "7.2",
+        "unit": "bar"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Operating Hours (Pump)",
+        "name": "Operating hours",
+        "value": "31200",
+        "unit": "hours"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Vibration - Drive End Bearing (Current)",
+        "name": "Vibration - Drive End Bearing",
+        "value": "3.8",
+        "unit": "mm/s RMS",
+        "normal_range": "\u2264 3.5"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Vibration - Non-Drive End Bearing (Current)",
+        "name": "Vibration - Non-Drive End Bearing",
+        "value": "1.9",
+        "unit": "mm/s RMS",
+        "normal_range": "\u2264 3.5"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Bearing Temperature - DE (Current)",
+        "name": "Bearing Temperature - DE",
+        "value": "72",
+        "unit": "\u00b0C",
+        "normal_range": "\u2264 80 \u00b0C"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Suction Pressure (Current)",
+        "name": "Suction Pressure",
+        "value": "1.82",
+        "unit": "bar",
+        "normal_range": "1.8 \u2013 2.2 bar"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Discharge Pressure (Current)",
+        "name": "Discharge Pressure",
+        "value": "9.06",
+        "unit": "bar",
+        "normal_range": "8.9 \u2013 9.5 bar"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Seal Chamber Pressure (Current)",
+        "name": "Seal Chamber Pressure",
+        "value": "4.4",
+        "unit": "bar",
+        "normal_range": "4.0 \u2013 5.0 bar"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Motor Current Draw (Current)",
+        "name": "Motor Current Draw",
+        "value": "48.2",
+        "unit": "A",
+        "normal_range": "42 \u2013 52 A"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Flow Rate (Current)",
+        "name": "Flow Rate",
+        "value": "298",
+        "unit": "m3/h",
+        "normal_range": "290 \u2013 330 m3/h"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Noise Level (Current)",
+        "name": "Noise Level (1 m distance)",
+        "value": "86",
+        "unit": "dBA",
+        "normal_range": "\u2264 82 dBA"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Lube Oil Pressure (Current)",
+        "name": "Lube Oil Pressure",
+        "value": "2.1",
+        "unit": "bar",
+        "normal_range": "2.0 \u2013 2.5 bar"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Suction Strainer Open Area Loss",
+        "name": "Suction Strainer open area loss",
+        "value": "18",
+        "unit": "%"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Critical Suction Header Pressure",
+        "name": "Suction header pressure below 1.7 bar",
+        "value": "< 1.7",
+        "unit": "bar"
+      }
+    },
+    {
+      "label": "Parameter",
+      "properties": {
+        "id": "Vibration Replacement Threshold",
+        "name": "Vibration exceeds 4.5 mm/s",
+        "value": "> 4.5",
+        "unit": "mm/s"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "LOCATED_AT",
+      "target_id": "Visakhapatnam Refinery"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "LOCATED_AT",
+      "target_id": "CDU-4"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "LOCATED_AT",
+      "target_id": "Zone 4"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_COMPONENT",
+      "target_id": "Mechanical Seal John Crane 8B1"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_COMPONENT",
+      "target_id": "Drive End Bearing SKF 6314-2RS"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_COMPONENT",
+      "target_id": "Non-Drive End Bearing SKF 6311"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_COMPONENT",
+      "target_id": "Impeller"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_COMPONENT",
+      "target_id": "Suction Strainer"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_COMPONENT",
+      "target_id": "Coupling Rexnord Thomas Disc"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_COMPONENT",
+      "target_id": "Gland Packing / Seal Housing"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_COMPONENT",
+      "target_id": "Baseplate Anchor Bolts"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_COMPONENT",
+      "target_id": "Motor ABB M3BP-225SM"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_ISSUE",
+      "target_id": "Cavitation Event"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_ISSUE",
+      "target_id": "Above Limit Noise Level"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "INSPECTED_BY",
+      "target_id": "M. Suresh"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "INSPECTED_BY",
+      "target_id": "P. Lakshmi"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "OPERATED_BY",
+      "target_id": "S. Patel"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "USES",
+      "target_id": "Crude Oil"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Crude Oil Temperature"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Rated Flow (Pump)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Differential Pressure (Pump)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Operating Hours (Pump)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Vibration - Drive End Bearing (Current)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Vibration - Non-Drive End Bearing (Current)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Bearing Temperature - DE (Current)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Suction Pressure (Current)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Discharge Pressure (Current)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Seal Chamber Pressure (Current)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Motor Current Draw (Current)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Flow Rate (Current)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Noise Level (Current)"
+    },
+    {
+      "source_id": "PMP-CDU4-P101A",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Lube Oil Pressure (Current)"
+    },
+    {
+      "source_id": "Mechanical Seal John Crane 8B1",
+      "relationship": "HAS_ISSUE",
+      "target_id": "Seal Face Leak"
+    },
+    {
+      "source_id": "Mechanical Seal John Crane 8B1",
+      "relationship": "USES",
+      "target_id": "Clean Condensate"
+    },
+    {
+      "source_id": "Drive End Bearing SKF 6314-2RS",
+      "relationship": "HAS_ISSUE",
+      "target_id": "Marginal Vibration - DE Bearing"
+    },
+    {
+      "source_id": "Drive End Bearing SKF 6314-2RS",
+      "relationship": "USES",
+      "target_id": "Mobil SHC Polyrex EM"
+    },
+    {
+      "source_id": "Non-Drive End Bearing SKF 6311",
+      "relationship": "USES",
+      "target_id": "Mobil SHC Polyrex EM"
+    },
+    {
+      "source_id": "Impeller",
+      "relationship": "HAS_ISSUE",
+      "target_id": "Minor Impeller Surface Erosion"
+    },
+    {
+      "source_id": "Suction Strainer",
+      "relationship": "HAS_ISSUE",
+      "target_id": "Partially Blocked Suction Strainer"
+    },
+    {
+      "source_id": "Suction Strainer",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Suction Strainer Open Area Loss"
+    },
+    {
+      "source_id": "VT-P101A-DE",
+      "relationship": "MONITORS",
+      "target_id": "Vibration - Drive End Bearing (Current)"
+    },
+    {
+      "source_id": "VT-P101A-DE",
+      "relationship": "CONNECTED_TO",
+      "target_id": "PMP-CDU4-P101A"
+    },
+    {
+      "source_id": "VT-P101A-DE",
+      "relationship": "CONNECTED_TO",
+      "target_id": "Drive End Bearing SKF 6314-2RS"
+    },
+    {
+      "source_id": "VT-P101A-NDE",
+      "relationship": "MONITORS",
+      "target_id": "Vibration - Non-Drive End Bearing (Current)"
+    },
+    {
+      "source_id": "VT-P101A-NDE",
+      "relationship": "CONNECTED_TO",
+      "target_id": "PMP-CDU4-P101A"
+    },
+    {
+      "source_id": "VT-P101A-NDE",
+      "relationship": "CONNECTED_TO",
+      "target_id": "Non-Drive End Bearing SKF 6311"
+    },
+    {
+      "source_id": "TT-P101A-BRG1",
+      "relationship": "MONITORS",
+      "target_id": "Bearing Temperature - DE (Current)"
+    },
+    {
+      "source_id": "TT-P101A-BRG1",
+      "relationship": "CONNECTED_TO",
+      "target_id": "PMP-CDU4-P101A"
+    },
+    {
+      "source_id": "TT-P101A-BRG1",
+      "relationship": "CONNECTED_TO",
+      "target_id": "Drive End Bearing SKF 6314-2RS"
+    },
+    {
+      "source_id": "PT-P101A-SUC",
+      "relationship": "MONITORS",
+      "target_id": "Suction Pressure (Current)"
+    },
+    {
+      "source_id": "PT-P101A-SUC",
+      "relationship": "CONNECTED_TO",
+      "target_id": "PMP-CDU4-P101A"
+    },
+    {
+      "source_id": "PT-P101A-DIS",
+      "relationship": "MONITORS",
+      "target_id": "Discharge Pressure (Current)"
+    },
+    {
+      "source_id": "PT-P101A-DIS",
+      "relationship": "CONNECTED_TO",
+      "target_id": "PMP-CDU4-P101A"
+    },
+    {
+      "source_id": "PT-P101A-SL",
+      "relationship": "MONITORS",
+      "target_id": "Seal Chamber Pressure (Current)"
+    },
+    {
+      "source_id": "PT-P101A-SL",
+      "relationship": "CONNECTED_TO",
+      "target_id": "PMP-CDU4-P101A"
+    },
+    {
+      "source_id": "CT-P101A-MOT",
+      "relationship": "MONITORS",
+      "target_id": "Motor Current Draw (Current)"
+    },
+    {
+      "source_id": "CT-P101A-MOT",
+      "relationship": "CONNECTED_TO",
+      "target_id": "Motor ABB M3BP-225SM"
+    },
+    {
+      "source_id": "FT-CDU4-FEED",
+      "relationship": "MONITORS",
+      "target_id": "Flow Rate (Current)"
+    },
+    {
+      "source_id": "FT-CDU4-FEED",
+      "relationship": "CONNECTED_TO",
+      "target_id": "PMP-CDU4-P101A"
+    },
+    {
+      "source_id": "PT-P101A-OIL",
+      "relationship": "MONITORS",
+      "target_id": "Lube Oil Pressure (Current)"
+    },
+    {
+      "source_id": "PT-P101A-OIL",
+      "relationship": "CONNECTED_TO",
+      "target_id": "PMP-CDU4-P101A"
+    },
+    {
+      "source_id": "Cavitation Event",
+      "relationship": "CAUSED_BY",
+      "target_id": "Temporary Suction Pressure Drop"
+    },
+    {
+      "source_id": "Cavitation Event",
+      "relationship": "INSPECTED_BY",
+      "target_id": "M. Suresh"
+    },
+    {
+      "source_id": "Cavitation Event",
+      "relationship": "INSPECTED_BY",
+      "target_id": "V. Reddy"
+    },
+    {
+      "source_id": "Temporary Suction Pressure Drop",
+      "relationship": "CAUSED_BY",
+      "target_id": "Concurrent Startup"
+    },
+    {
+      "source_id": "Temporary Suction Pressure Drop",
+      "relationship": "HAS_PARAMETER",
+      "target_id": "Critical Suction Header Pressure"
+    },
+    {
+      "source_id": "Concurrent Startup",
+      "relationship": "USES",
+      "target_id": "PMP-CDU4-P102B"
+    },
+    {
+      "source_id": "Minor Impeller Surface Erosion",
+      "relationship": "CAUSED_BY",
+      "target_id": "Cavitation Event"
+    },
+    {
+      "source_id": "Grease Topped Up",
+      "relationship": "USES",
+      "target_id": "Drive End Bearing SKF 6314-2RS"
+    },
+    {
+      "source_id": "Grease Topped Up",
+      "relationship": "USES",
+      "target_id": "Mobil SHC Polyrex EM"
+    },
+    {
+      "source_id": "Cleaned Suction Strainer",
+      "relationship": "USES",
+      "target_id": "Suction Strainer"
+    },
+    {
+      "source_id": "Torqued Anchor Bolts",
+      "relationship": "USES",
+      "target_id": "Baseplate Anchor Bolts"
+    },
+    {
+      "source_id": "Borescope Impeller Inspection",
+      "relationship": "OPERATED_BY",
+      "target_id": "M. Suresh"
+    },
+    {
+      "source_id": "Borescope Impeller Inspection",
+      "relationship": "USES",
+      "target_id": "Impeller"
+    },
+    {
+      "source_id": "Repeat Vibration Trending",
+      "relationship": "OPERATED_BY",
+      "target_id": "Condition Monitoring"
+    },
+    {
+      "source_id": "Repeat Vibration Trending",
+      "relationship": "MONITORS",
+      "target_id": "Vibration - Drive End Bearing (Current)"
+    },
+    {
+      "source_id": "Review Pump Startup Procedure",
+      "relationship": "OPERATED_BY",
+      "target_id": "V. Reddy"
+    },
+    {
+      "source_id": "Replace DE Bearing",
+      "relationship": "REPLACED",
+      "target_id": "Drive End Bearing SKF 6314-2RS"
+    },
+    {
+      "source_id": "Replace DE Bearing",
+      "relationship": "USES",
+      "target_id": "Vibration Replacement Threshold"
+    },
+    {
+      "source_id": "Update CMMS History",
+      "relationship": "OPERATED_BY",
+      "target_id": "M. Suresh"
+    },
+    {
+      "source_id": "Clean Condensate",
+      "relationship": "CONNECTED_TO",
+      "target_id": "CDU-4 Overhead Condensate Drum"
+    }
+  ]
+}

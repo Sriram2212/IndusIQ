@@ -1,0 +1,10 @@
+{
+  "name": "industrial-agent-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix \"Industry_agent fe\"",
+    "build": "npm run build --prefix \"Industry_agent fe\"",
+    "preview": "npm run preview --prefix \"Industry_agent fe\""
+  }
+}

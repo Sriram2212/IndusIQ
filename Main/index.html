@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sutra — Industrial Knowledge Intelligence</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite-950:#101317;
+    --graphite-900:#161a20;
+    --graphite-800:#1d232b;
+    --graphite-700:#262e38;
+    --steel-600:#3a4652;
+    --steel-500:#57646f;
+    --steel-300:#8b98a3;
+    --paper-100:#eef1f4;
+    --paper-050:#f7f9fa;
+    --amber:#e3a13d;
+    --amber-dim:#7a5a26;
+    --ok-green:#4fae7f;
+    --alert-red:#d9645a;
+    --line:#2c343d;
+    --font-display:'Big Shoulders Display', sans-serif;
+    --font-body:'IBM Plex Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--graphite-950);
+    color:var(--paper-100);
+    font-family:var(--font-body);
+    font-size:14px;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber);color:var(--graphite-950);}
+
+  /* ---------- Background texture ---------- */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.25;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .app{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:232px 1fr 320px;
+    grid-template-rows:56px 1fr;
+    height:100vh;
+    min-height:720px;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    grid-column:1 / 4;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, var(--graphite-900), var(--graphite-950));
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand-mark{
+    width:26px; height:26px;
+    border:2px solid var(--amber);
+    border-radius:3px;
+    position:relative;
+    flex:none;
+  }
+  .brand-mark::before, .brand-mark::after{
+    content:"";
+    position:absolute;
+    background:var(--amber);
+  }
+  .brand-mark::before{ top:6px; left:3px; width:14px; height:2px; }
+  .brand-mark::after{ top:11px; left:3px; width:9px; height:2px; }
+  .brand-name{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:20px;
+    letter-spacing:0.02em;
+    color:var(--paper-050);
+  }
+  .brand-sub{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--steel-300);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    border-left:1px solid var(--line);
+    padding-left:10px;
+    margin-left:2px;
+  }
+  .topbar-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--steel-300);
+  }
+  .status-pill{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 10px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--graphite-800);
+  }
+  .dot{ width:6px; height:6px; border-radius:50%; background:var(--ok-green); box-shadow:0 0 6px var(--ok-green); }
+  .avatar{
+    width:28px; height:28px;
+    border-radius:50%;
+    background:var(--steel-600);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono);
+    font-size:11px;
+    font-weight:600;
+    color:var(--paper-050);
+    border:1px solid var(--steel-500);
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    border-right:1px solid var(--line);
+    background:var(--graphite-900);
+    padding:18px 0;
+    overflow-y:auto;
+  }
+  .side-section{ margin-bottom:22px; padding:0 16px; }
+  .side-label{
+    font-family:var(--font-mono);
+    font-size:10px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--steel-500);
+    margin-bottom:8px;
+    padding-left:4px;
+  }
+  .side-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:7px 10px;
+    border-radius:5px;
+    color:var(--steel-300);
+    font-size:13px;
+    cursor:pointer;
+    margin-bottom:2px;
+  }
+  .side-item:hover{ background:var(--graphite-800); color:var(--paper-100); }
+  .side-item.active{
+    background:var(--graphite-800);
+    color:var(--paper-050);
+    border-left:2px solid var(--amber);
+    padding-left:8px;
+  }
+  .side-item .count{
+    font-family:var(--font-mono);
+    font-size:10px;
+    color:var(--steel-500);
+  }
+  .side-item.active .count{ color:var(--amber); }
+  .asset-tree{ margin-left:8px; border-left:1px solid var(--line); padding-left:8px; }
+  .asset-leaf{
+    display:flex; align-items:center; gap:7px;
+    font-size:12.5px;
+    padding:5px 8px;
+    border-radius:4px;
+    color:var(--steel-300);
+    cursor:pointer;
+  }
+  .asset-leaf:hover{ background:var(--graphite-800); }
+  .asset-leaf.flagged{ color:var(--paper-100); }
+  .flag{ width:6px; height:6px; border-radius:50%; flex:none; }
+  .flag.amber{ background:var(--amber); box-shadow:0 0 5px var(--amber);}
+  .flag.green{ background:var(--ok-green); }
+  .flag.grey{ background:var(--steel-600); }
+
+  /* ---------- Main column ---------- */
+  .main{
+    overflow-y:auto;
+    padding:26px 30px 40px;
+  }
+  .ask-hero{
+    border:1px solid var(--line);
+    background:var(--graphite-900);
+    border-radius:10px;
+    padding:20px 22px;
+    margin-bottom:22px;
+  }
+  .ask-eyebrow{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:10px;
+  }
+  .ask-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid var(--steel-600);
+    background:var(--graphite-950);
+    border-radius:7px;
+    padding:12px 14px;
+  }
+  .ask-row input{
+    flex:1;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:var(--paper-050);
+    font-family:var(--font-body);
+    font-size:15px;
+  }
+  .ask-row input::placeholder{ color:var(--steel-500); }
+  .ask-btn{
+    background:var(--amber);
+    color:var(--graphite-950);
+    border:none;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.03em;
+    padding:9px 18px;
+    border-radius:5px;
+    cursor:pointer;
+    text-transform:uppercase;
+  }
+  .ask-scope{
+    display:flex; gap:8px;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+  .scope-chip{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--steel-300);
+    border:1px solid var(--line);
+    padding:4px 9px;
+    border-radius:20px;
+  }
+  .scope-chip.on{ color:var(--amber); border-color:var(--amber-dim); background:rgba(227,161,61,0.08); }
+
+  .section-title{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:0.01em;
+    color:var(--paper-050);
+    margin:0 0 12px;
+    text-transform:uppercase;
+  }
+
+  .answer-card{
+    border:1px solid var(--line);
+    border-left:3px solid var(--amber);
+    background:var(--graphite-900);
+    border-radius:0 8px 8px 0;
+    padding:20px 22px;
+    margin-bottom:24px;
+    position:relative;
+  }
+  .answer-meta{
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--steel-500);
+    margin-bottom:12px;
+  }
+  .confidence{
+    color:var(--ok-green);
+    border:1px solid rgba(79,174,127,0.35);
+    padding:2px 7px;
+    border-radius:10px;
+  }
+  .answer-text{
+    font-size:14.5px;
+    line-height:1.72;
+    color:var(--paper-100);
+  }
+  .cite{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--amber);
+    background:rgba(227,161,61,0.12);
+    border:1px solid var(--amber-dim);
+    padding:1px 6px;
+    border-radius:8px;
+    cursor:pointer;
+    margin:0 1px;
+  }
+  .cite:hover{ background:var(--amber); color:var(--graphite-950); }
+
+  .rec-strip{
+    display:flex;
+    gap:10px;
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+    flex-wrap:wrap;
+  }
+  .rec-tag{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    padding:5px 10px;
+    border-radius:5px;
+    border:1px solid var(--line);
+  }
+  .rec-tag.high{ color:#f2a598; border-color:rgba(217,100,90,0.4); background:rgba(217,100,90,0.08); }
+  .rec-tag.med{ color:#f0cb84; border-color:rgba(227,161,61,0.35); background:rgba(227,161,61,0.06); }
+
+  .grid-two{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:18px;
+    margin-bottom:24px;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:var(--graphite-900);
+    border-radius:8px;
+    padding:18px 20px;
+  }
+  .card-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:14px;
+  }
+  .card-head h3{
+    font-family:var(--font-display);
+    font-size:14.5px;
+    letter-spacing:0.02em;
+    margin:0;
+    color:var(--paper-050);
+    text-transform:uppercase;
+  }
+  .card-head .tag-id{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--steel-300);
+  }
+  .spec-list{ display:grid; grid-template-columns:1fr 1fr; gap:10px 16px; }
+  .spec{ }
+  .spec .k{ font-family:var(--font-mono); font-size:10px; color:var(--steel-500); text-transform:uppercase; letter-spacing:0.06em; }
+  .spec .v{ font-size:13px; color:var(--paper-100); margin-top:2px; }
+  .status-row{ display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+  .badge{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    padding:4px 9px;
+    border-radius:4px;
+    display:inline-flex; align-items:center; gap:5px;
+  }
+  .badge.amber{ background:rgba(227,161,61,0.12); color:var(--amber); border:1px solid var(--amber-dim); }
+  .badge.red{ background:rgba(217,100,90,0.12); color:#f2a598; border:1px solid rgba(217,100,90,0.4); }
+  .badge.green{ background:rgba(79,174,127,0.12); color:var(--ok-green); border:1px solid rgba(79,174,127,0.35); }
+
+  .timeline{ list-style:none; margin:0; padding:0; }
+  .timeline li{
+    position:relative;
+    padding:0 0 16px 18px;
+    border-left:1px solid var(--line);
+    font-size:12.5px;
+    color:var(--steel-300);
+  }
+  .timeline li:last-child{ border-color:transparent; padding-bottom:0;}
+  .timeline li::before{
+    content:"";
+    position:absolute; left:-4.5px; top:2px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--graphite-950);
+    border:2px solid var(--steel-500);
+  }
+  .timeline li.warn::before{ border-color:var(--amber); background:var(--amber); }
+  .timeline .t-date{ font-family:var(--font-mono); font-size:10px; color:var(--steel-500); display:block; margin-bottom:2px;}
+  .timeline .t-body{ color:var(--paper-100); }
+
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:24px;
+  }
+  .stat{
+    border:1px solid var(--line);
+    background:var(--graphite-900);
+    border-radius:8px;
+    padding:16px 18px;
+  }
+  .stat .num{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:30px;
+    color:var(--paper-050);
+    line-height:1;
+  }
+  .stat .lbl{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--steel-400, var(--steel-300));
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-top:6px;
+  }
+  .stat .lbl.accent{ color:var(--amber); }
+
+  /* ---------- Trace panel ---------- */
+  .trace-panel{
+    border-left:1px solid var(--line);
+    background:var(--graphite-900);
+    padding:20px 18px 30px;
+    overflow-y:auto;
+  }
+  .trace-head{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.02em;
+    color:var(--paper-050);
+    text-transform:uppercase;
+    margin-bottom:4px;
+  }
+  .trace-sub{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--steel-500);
+    margin-bottom:18px;
+  }
+  .trace-thread{
+    position:relative;
+    padding-left:16px;
+  }
+  .trace-thread::before{
+    content:"";
+    position:absolute; left:4px; top:6px; bottom:6px;
+    width:1px;
+    background:repeating-linear-gradient(180deg, var(--amber-dim) 0 4px, transparent 4px 8px);
+  }
+  .src-card{
+    position:relative;
+    background:var(--graphite-800);
+    border:1px solid var(--line);
+    border-radius:7px;
+    padding:12px 13px;
+    margin-bottom:12px;
+  }
+  .src-card::before{
+    content:"";
+    position:absolute; left:-16px; top:16px;
+    width:12px; height:1px;
+    background:var(--amber-dim);
+  }
+  .src-card::after{
+    content:"";
+    position:absolute; left:-20px; top:12px;
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--graphite-900);
+    border:2px solid var(--amber);
+  }
+  .src-top{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:6px;
+  }
+  .src-type{
+    font-family:var(--font-mono);
+    font-size:9.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--amber);
+  }
+  .src-rel{
+    font-family:var(--font-mono);
+    font-size:9.5px;
+    color:var(--steel-500);
+  }
+  .src-name{ font-size:12.5px; color:var(--paper-100); margin-bottom:5px; line-height:1.4; }
+  .src-sys{
+    font-family:var(--font-mono);
+    font-size:10px;
+    color:var(--steel-500);
+    display:flex; justify-content:space-between;
+    border-top:1px solid var(--line);
+    padding-top:6px;
+    margin-top:6px;
+  }
+  .src-sys b{ color:var(--steel-300); font-weight:500; }
+
+  .trace-footer{
+    margin-top:6px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--steel-500);
+    line-height:1.6;
+  }
+  .trace-footer b{ color:var(--paper-100); font-weight:500; }
+
+  /* scrollbars */
+  ::-webkit-scrollbar{ width:8px; height:8px; }
+  ::-webkit-scrollbar-track{ background:transparent; }
+  ::-webkit-scrollbar-thumb{ background:var(--steel-600); border-radius:8px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-name">SUTRA</div>
+      <div class="brand-sub">Industrial Knowledge Intelligence</div>
+    </div>
+    <div class="topbar-right">
+      <div class="status-pill"><span class="dot"></span> 6 SYSTEMS CONNECTED</div>
+      <div>UNIT 3 &middot; ROLLING MILL COMPLEX</div>
+      <div class="avatar">RK</div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="side-section">
+      <div class="side-label">Workspace</div>
+      <div class="side-item active">Ask &amp; Investigate <span class="count">&#9656;</span></div>
+      <div class="side-item">Knowledge Graph <span class="count">NEW</span></div>
+      <div class="side-item">Document Vault <span class="count">14,208</span></div>
+      <div class="side-item">Alerts &amp; Drift <span class="count">3</span></div>
+    </div>
+
+    <div class="side-section">
+      <div class="side-label">Plant Assets</div>
+      <div class="side-item">Unit 1 &mdash; Sinter Plant</div>
+      <div class="side-item">Unit 2 &mdash; Blast Furnace</div>
+      <div class="side-item active">Unit 3 &mdash; Rolling Mill</div>
+      <div class="asset-tree">
+        <div class="asset-leaf flagged"><span class="flag amber"></span> GB-RM3-0207</div>
+        <div class="asset-leaf"><span class="flag green"></span> MTR-RM3-0118</div>
+        <div class="asset-leaf"><span class="flag green"></span> HYD-RM3-0044</div>
+        <div class="asset-leaf"><span class="flag grey"></span> CNV-RM3-0093</div>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <div class="side-label">Connected Systems</div>
+      <div class="side-item">CMMS &middot; SAP PM <span class="count">&#9679;</span></div>
+      <div class="side-item">Engineering Vault <span class="count">&#9679;</span></div>
+      <div class="side-item">Lab LIMS <span class="count">&#9679;</span></div>
+      <div class="side-item">SOP Repository <span class="count">&#9679;</span></div>
+      <div class="side-item">Shift Handover App <span class="count">&#9679;</span></div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="ask-hero">
+      <div class="ask-eyebrow">Ask across every system &mdash; drawings, work orders, lab reports, SOPs, shift logs</div>
+      <div class="ask-row">
+        <input type="text" value="Why did GB-RM3-0207 flag a startup noise, and is it safe to run until the next PM?" readonly>
+        <button class="ask-btn">Ask</button>
+      </div>
+      <div class="ask-scope">
+        <div class="scope-chip on">Unit 3 &middot; Rolling Mill</div>
+        <div class="scope-chip">All Units</div>
+        <div class="scope-chip">Last 24 months</div>
+        <div class="scope-chip">Include shift logs</div>
+      </div>
+    </div>
+
+    <div class="section-title">Synthesized Answer</div>
+    <div class="answer-card">
+      <div class="answer-meta">
+        <span>GENERATED 18-JUL-2026 &middot; 22:41</span>
+        <span class="confidence">92% CONFIDENCE</span>
+        <span>6 SOURCES &middot; 4 SYSTEMS</span>
+      </div>
+      <div class="answer-text">
+        GB-RM3-0207 is <b>safe to keep running</b> until the next scheduled PM, but the finding should not be deferred past 30 days.
+        The DE-side bearing vibration reading of 4.8 mm/s RMS is marginal against the 4.5 mm/s ISO 10816-3 threshold <span class="cite">1</span>,
+        and iron content in the latest oil analysis rose from 95&nbsp;ppm to 142&nbsp;ppm quarter-on-quarter <span class="cite">2</span> &mdash;
+        together consistent with early-stage bearing wear rather than an isolated fault. The technician's field note points to the
+        same bearing, describing a start-up rattle near the output shaft seal that settles once loaded <span class="cite">3</span>.
+        This gearbox had a prior DE-bearing replacement in September 2023 <span class="cite">4</span>, and no other anomalies were
+        found in torque, alignment, or backlash checks <span class="cite">1</span>. Recommend the borescope inspection already
+        logged against WO-2026-118820 <span class="cite">5</span>, cross-checked against the OEM vibration limits in the MAAG
+        WPU-450 manual <span class="cite">6</span>.
+      </div>
+      <div class="rec-strip">
+        <div class="rec-tag high">Borescope inspection &middot; by 05-Aug-2026</div>
+        <div class="rec-tag med">Repeat oil analysis &middot; by 01-Aug-2026</div>
+        <div class="rec-tag med">Vibration recheck &middot; by 08-Aug-2026</div>
+      </div>
+    </div>
+
+    <div class="grid-two">
+      <div class="card">
+        <div class="card-head">
+          <h3>Equipment Context</h3>
+          <span class="tag-id">GB-RM3-0207</span>
+        </div>
+        <div class="spec-list">
+          <div class="spec"><div class="k">Type</div><div class="v">Helical Gearbox, Main Drive</div></div>
+          <div class="spec"><div class="k">Model</div><div class="v">MAAG WPU-450</div></div>
+          <div class="spec"><div class="k">Installed</div><div class="v">11 Mar 2016</div></div>
+          <div class="spec"><div class="k">Operating Hours</div><div class="v">&asymp; 38,400 hrs</div></div>
+          <div class="spec"><div class="k">Last Oil Change</div><div class="v">02 May 2026</div></div>
+          <div class="spec"><div class="k">Last PM</div><div class="v">18 Jul 2026</div></div>
+        </div>
+        <div class="status-row">
+          <span class="badge amber">&#9650; Vibration marginal</span>
+          <span class="badge red">&#9650; Noise above limit</span>
+          <span class="badge green">&#10003; Alignment normal</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Recent History</h3>
+          <span class="tag-id">6 events</span>
+        </div>
+        <ul class="timeline">
+          <li class="warn"><span class="t-date">17 JUL 2026 &middot; A SHIFT</span><span class="t-body">Operator reports intermittent start-up noise</span></li>
+          <li><span class="t-date">02 MAY 2026</span><span class="t-body">Oil changed ahead of schedule &mdash; breather cap damage</span></li>
+          <li><span class="t-date">14 FEB 2026</span><span class="t-body">Quarterly PM &mdash; all parameters nominal</span></li>
+          <li class="warn"><span class="t-date">SEP 2023</span><span class="t-body">DE-side bearing replaced (WO-2023-097712)</span></li>
+          <li><span class="t-date">MAR 2016</span><span class="t-body">Commissioned on Unit 3, Stand No. 2</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-title">Platform Coverage</div>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">14,208</div><div class="lbl">Documents Indexed</div></div>
+      <div class="stat"><div class="num">6</div><div class="lbl">Source Systems Linked</div></div>
+      <div class="stat"><div class="num">92%</div><div class="lbl accent">Avg. Answer Confidence</div></div>
+      <div class="stat"><div class="num">3.1s</div><div class="lbl">Median Query Time</div></div>
+    </div>
+
+  </main>
+
+  <!-- TRACE PANEL -->
+  <aside class="trace-panel">
+    <div class="trace-head">Evidence Trace</div>
+    <div class="trace-sub">Every source behind this answer, resolved across 4 disconnected systems</div>
+
+    <div class="trace-thread">
+      <div class="src-card">
+        <div class="src-top"><span class="src-type">[1] Inspection Data</span><span class="src-rel">98% match</span></div>
+        <div class="src-name">Equipment Inspection &amp; Maintenance Report &mdash; VSE-MNT-2026-04471</div>
+        <div class="src-sys"><b>CMMS</b><span>WO-2026-118820</span></div>
+      </div>
+      <div class="src-card">
+        <div class="src-top"><span class="src-type">[2] Lab Analysis</span><span class="src-rel">95% match</span></div>
+        <div class="src-name">Lube Oil Analysis Report &mdash; Fe trend, Q2 vs Q3</div>
+        <div class="src-sys"><b>LIMS</b><span>LAB-OIL-2026-0512</span></div>
+      </div>
+      <div class="src-card">
+        <div class="src-top"><span class="src-type">[3] Field Note</span><span class="src-rel">91% match</span></div>
+        <div class="src-name">Technician notes, R. Kannan &mdash; start-up rattle, output shaft seal</div>
+        <div class="src-sys"><b>Shift App</b><span>SHIFT-LOG-0717-A</span></div>
+      </div>
+      <div class="src-card">
+        <div class="src-top"><span class="src-type">[4] Work History</span><span class="src-rel">88% match</span></div>
+        <div class="src-name">Prior work order &mdash; DE-side bearing replacement, 2023</div>
+        <div class="src-sys"><b>CMMS</b><span>WO-2023-097712</span></div>
+      </div>
+      <div class="src-card">
+        <div class="src-top"><span class="src-type">[5] Work Order</span><span class="src-rel">85% match</span></div>
+        <div class="src-name">Open follow-up actions &mdash; borescope, revibration check</div>
+        <div class="src-sys"><b>CMMS</b><span>WO-2026-118820</span></div>
+      </div>
+      <div class="src-card">
+        <div class="src-top"><span class="src-type">[6] OEM Reference</span><span class="src-rel">79% match</span></div>
+        <div class="src-name">MAAG WPU-450 service manual &mdash; vibration &amp; noise limits, &sect;4.2</div>
+        <div class="src-sys"><b>Doc Vault</b><span>OEM-MAN-R2</span></div>
+      </div>
+    </div>
+
+    <div class="trace-footer">
+      <b>Why this matters:</b> without cross-system resolution, these six records would sit in four separate
+      tools and require a manual pull to connect. This trace is what makes the answer auditable, not just plausible.
+    </div>
+  </aside>
+
+</div>
+</body>
+</html>
